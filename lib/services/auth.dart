@@ -32,6 +32,13 @@ class AuthService {
     }
   }
 
+  Future<FirebaseUser> anonLogin() async {
+    FirebaseUser user = (await _auth.signInAnonymously()) as FirebaseUser;
+    updateUserData(user);
+    return user;
+  }
+
+
   Future<void> updateUserData(FirebaseUser user){
     DocumentReference reportRef = _db.collection('report').document(user.uid);
 
