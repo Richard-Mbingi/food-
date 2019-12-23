@@ -24,22 +24,45 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false ,
       body: Container(
         padding: EdgeInsets.all(30),
-        decoration: BoxDecoration(),
+        decoration: BoxDecoration(
+          border: Border.all(
+            
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            FlutterLogo(
-              size: 150,
+            Image.asset(
+              'assets/images/leaf(green).png',
+              height: 200,
+              width: 200,
             ),
             Text(
-              'Login to Start',
+              'Login In',
               style: Theme.of(context).textTheme.headline,
               textAlign: TextAlign.center,
             ),
-            Text('Your Tagline'),
+            TextFormField(
+              decoration: new InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                    borderSide: BorderSide(color: Colors.teal, width: 2.0)),
+                hintText: 'Username',
+              ),
+            ),
+            TextFormField(
+              decoration: new InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                    borderSide: BorderSide(color: Colors.teal, width: 2.0)),
+                hintText: 'Password',
+              ),
+              obscureText: true,
+            ),
             LoginButton(
               text: 'LOGIN WITH GOOGLE',
               icon: FontAwesomeIcons.google,
@@ -70,8 +93,7 @@ class LoginButton extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: FlatButton.icon(
         padding: EdgeInsets.all(30),
-        icon: Icon(icon, color: Colors.white),
-        color: color,
+        icon: Icon(icon, color: Colors.teal[300]),
         onPressed: () async {
           var user = await loginMethod();
           if (user != null) {

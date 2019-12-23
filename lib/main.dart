@@ -32,16 +32,16 @@ class MyApp extends StatelessWidget {
 
         //? Theme
         theme: ThemeData(
-          fontFamily: 'Nunito',
+          fontFamily: 'Manjari',
           bottomAppBarTheme: BottomAppBarTheme(
             color: Colors.black87,
           ),
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
           textTheme: TextTheme(
             body1: TextStyle(fontSize: 18),
             body2: TextStyle(fontSize: 16),
             button: TextStyle(letterSpacing: 1.5, fontWeight: FontWeight.bold),
-            headline: TextStyle(fontWeight: FontWeight.bold),
+            headline: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             subhead: TextStyle(color: Colors.grey),
           ),
           buttonTheme: ButtonThemeData(),
